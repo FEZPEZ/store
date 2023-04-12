@@ -125,7 +125,7 @@ public class InventoryLineItem implements Comparable<InventoryLineItem>
      */
     public String toString()
     {
-        String lineItemStats = String.format("Line item %d: %s, Quantity: %d, Subtotal: %f.2",
+        String lineItemStats = String.format("Line item %d: %s, Quantity: %d, Subtotal: %.2f",
                 _lineItemNumber, _product.getDescription(), _quantity, calcSubtotal());
         return lineItemStats;
     }
