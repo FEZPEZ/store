@@ -128,7 +128,7 @@ public class InventoryLineItem implements Comparable<InventoryLineItem>
         String lineItemStats;
         if (_product.getClass().equals(Book.class))
         {
-            lineItemStats = String.format("Quantity: %d", _quantity);
+            lineItemStats = String.format("%d", _quantity);
         }
         else
         {
