@@ -97,7 +97,7 @@ public class InventoryLineItem implements Comparable<InventoryLineItem>
 
     /**
      *
-     * @return the total price
+     * @return the total price.
      */
     public double calcSubtotal()
     {
