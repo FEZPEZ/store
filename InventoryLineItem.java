@@ -123,18 +123,9 @@ public class InventoryLineItem implements Comparable<InventoryLineItem>
      *
      * @return a string that lists all the line items
      */
-    public String toString()
-    {
-        String lineItemStats;
-        if (_product.getClass().equals(Book.class))
-        {
-            lineItemStats = String.format("%d", _quantity);
-        }
-        else
-        {
-            lineItemStats = String.format("Line item %d: %s, Quantity: %d, Subtotal: %.2f",
-                    _lineItemNumber, _product.getDescription(), _quantity, calcSubtotal());
-        }
+    public String toString() {
+        String lineItemStats = String.format("Line item %d: %s, Quantity: %d, Price: %.2f, Total: %.2f",
+                _lineItemNumber, _product.getDescription(), _quantity, _product.getPrice(), calcSubtotal());
 
         return lineItemStats;
     }
