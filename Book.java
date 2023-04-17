@@ -49,7 +49,7 @@ public class Book extends Product
      */
     public String toString()
     {
-        String bookStats = super.toString() + " " + _author + " " + _publisher;
+        String bookStats = getID() + getDescription() + getPrice() + " " + _author + " " + _publisher;
         return bookStats;
     }
 }
