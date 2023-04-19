@@ -7,10 +7,10 @@ public class InventoryLineItem implements Comparable<InventoryLineItem>
     private static long _lineItemCount = 0;
 
     //The item number
-    private long _lineItemNumber;
+    private final long _LINEITEMNUMBER;
 
     //The product type
-    private Product _product;
+    private final Product _PRODUCT;
 
     //The quantity of items
     private int _quantity;
@@ -23,8 +23,8 @@ public class InventoryLineItem implements Comparable<InventoryLineItem>
     public InventoryLineItem(Product product, int quantity)
     {
         _lineItemCount++;
-        _lineItemNumber = _lineItemCount;
-        _product = product;
+        _LINEITEMNUMBER = _lineItemCount;
+        _PRODUCT = product;
         _quantity = quantity;
     }
 
@@ -43,7 +43,7 @@ public class InventoryLineItem implements Comparable<InventoryLineItem>
      */
     public long getLineItemNumber()
     {
-        return _lineItemNumber;
+        return _LINEITEMNUMBER;
     }
 
     /**
@@ -52,7 +52,7 @@ public class InventoryLineItem implements Comparable<InventoryLineItem>
      */
     public Product getProduct()
     {
-        return _product;
+        return _PRODUCT;
     }
 
     /**
@@ -101,8 +101,9 @@ public class InventoryLineItem implements Comparable<InventoryLineItem>
      */
     public double calcSubtotal()
     {
+        //wow
         double discountRate = calcDiscountRate();
-        double price = _product.getPrice();
+        double price = _PRODUCT.getPrice();
         double discountedPrice = price * (1 - discountRate);
         return _quantity * discountedPrice;
     }
@@ -112,20 +113,38 @@ public class InventoryLineItem implements Comparable<InventoryLineItem>
      * @param other This is compared to the current line item
      * @return an integer that determines which one is greater
      */
+    @Override
+    /**
+     * fkjahdflkjadsflkjhasldkjfh
+     */
     public int compareTo(InventoryLineItem other)
     {
         double subtotal = calcSubtotal();
         double otherSubtotal = other.calcSubtotal();
-        return (int) (subtotal - otherSubtotal);
+        int thingthing = 0;
+        if (subtotal < otherSubtotal)
+        {
+            thingthing = -1;
+        }
+        else if (subtotal > otherSubtotal)
+        {
+            thingthing = 1;
+        }
+        else
+        {
+            thingthing = 0;
+        }
+        return thingthing;
     }
 
     /**
      *
      * @return a string that lists all the line items
      */
-    public String toString() {
+    public String toString()
+    {
         String lineItemStats = String.format("Line item %d: %s, Quantity: %d, Price: %.2f, Total: %.2f",
-                _lineItemNumber, _product.getDescription(), _quantity, _product.getPrice(), calcSubtotal());
+                _LINEITEMNUMBER, _PRODUCT.getDescription(), _quantity, _PRODUCT.getPrice(), calcSubtotal());
 
         return lineItemStats;
     }
